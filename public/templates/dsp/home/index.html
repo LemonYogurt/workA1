@@ -1,0 +1,48 @@
+<div class="row" id="consumptionHome">
+    <div class="col-md-10">
+        <div class="col-md-3">
+            <div>昨日消耗<span class="text-muted">(元)</span></div>
+            <h3 class="yesCharge">统计中</h3>
+        </div>
+        <div class="col-md-3">
+            <div>今日消耗<span class="text-muted">(元)</span></div>
+            <h3 class="todayCharge">统计中</h3>
+        </div>
+        <div class="col-md-3">
+            <div>本月消耗<span class="text-muted">(元)</span></div>
+            <h3 class="curMonthCharge">统计中</h3>
+        </div>
+        <div class="col-md-3">
+            <div>上月消耗<span class="text-muted">(元)</span></div>
+            <h3 class="lastMonthCharge">统计中</h3>
+        </div>
+        <div class="col-md-3 hide">
+            <div>账户余额<span class="text-muted">(元)</span></div>
+            <h3 class="balance">--</h3>
+        </div>
+    </div>
+    <div class="col-md-2 hide">
+        <button class="btn btn-default nowRechargeBtn">立刻充值</button>
+            <a href="#/">充值记录</a>
+    </div>
+    <div class="col-md-12 chartPanel">
+        <div class="panel panel-default">
+            <div class="panel-heading text-right">
+                <!-- <span class="pull-left">今日消耗（截止<span><%=moment().format("HH")%></span>时）：<span class="moneyNow">0.00</span>元</span> -->
+                <span class="pull-left">今日统计</span>
+                <a href="#dsp/reports/realtime">查看详情</a>
+            </div>
+            <div id="dspHomeChart"></div>
+        </div>
+    </div>
+    <div class="col-md-12 chartPanel">
+        <div class="panel panel-default">
+            <div class="panel-heading text-right">
+               <!--  <span class="pull-left">近30天消耗：<span class="money30">0.00</span>元</span> -->
+               <span class="pull-left">近30天统计</span>
+                <a href="#dsp/reports/history">查看详情</a>
+            </div>
+            <div id="historyChart"></div>
+        </div>
+    </div>
+</div>

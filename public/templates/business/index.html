@@ -1,0 +1,35 @@
+<h2>账户管理</h2>
+<div class="row chartPanel">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            	<div class="form-inline text-right">
+	                <span class="pull-left" style="line-height: 30px;font-size: 1.2em;"><i class="fa fa-table"></i> 账户列表</span>
+	                <div class="form-group">
+	                    <label for="state">账户状态</label>
+	                    <select class="form-control" id="state" style="margin: 0 10px;">
+	                        <option value="">全部</option>
+	                        <option value="0">可用</option>
+	                        <option value="1">待审核</option>
+	                        <option value="2">禁用</option>
+	                    </select>
+	                    <input type="text" class="form-control" style="width: 220px;"id="accountInput" value="" placeholder="账户名称、ID、Email或dspId">
+	                    <button class="btn btn-info" id="accountSerchBtn" style="margin-left: 10px;">查询</button>
+	                    <button class="btn btn-success" id="addAccountBtn" style="margin-left: 10px; display: <%=currentUser.authorize.type >= 4? 'none': ''%>">添加账户</button>
+	                </div>
+	            </div>
+            </div>
+            <table class="table chartPanel" id="accountListTable"></table>
+             <nav class="text-center">
+		        <ul id="accountListPage"></ul>
+		    </nav>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="accountForm">
+    </div>
+  </div>
+</div>

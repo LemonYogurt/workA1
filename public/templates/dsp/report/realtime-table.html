@@ -1,0 +1,24 @@
+<%for(var i = data2.length-1;i >=0;i--){
+var d1 = data[i];
+var d2 = data2[i];
+	%>
+	<tr>
+		<td style="vertical-align:middle;" rowspan="2"><%=d1["date"].substring(10)%>:00</td>
+		<td><%=d1["date"].substring(0,10)%></td>
+		<td><%=app.Util.formatData(d1["pv"] || 0)%></td>
+		<td><%=app.Util.formatData(d1["click"] || 0)%></td>
+		<td><%=app.Util.formatData(d1["pv"]? d1["click"]/d1["pv"]*100:0,3)%>%</td>
+		<td>￥<%=app.Util.formatData(d1["click"] ? d1["money"]/d1["click"]:0,2)%></td>
+		<td>￥<%=app.Util.formatData(d1["pv"] ? d1["money"]/d1["pv"]*1000:0,2)%></td>
+		<td><%="￥"+app.Util.formatData(d1["money"] || 0,2)%></td>
+	</tr>
+	<tr>
+		<td class="text-muted" ><%=d2["date"].substring(0,10)%></td>
+		<td class="text-muted" ><%=app.Util.formatData(d2["pv"] || 0)%></td>
+		<td class="text-muted" ><%=app.Util.formatData(d2["click"] || 0)%></td>
+		<td class="text-muted" ><%=app.Util.formatData(d2["pv"]? d2["click"]/d2["pv"]*100:0,3)%>%</td>
+		<td class="text-muted" >￥<%=app.Util.formatData(d2["click"] ? d2["money"]/d2["click"]:0,2)%></td>
+		<td class="text-muted" >￥<%=app.Util.formatData(d2["pv"] ? d2["money"]/d2["pv"]*1000:0,2)%></td>
+		<td class="text-muted" ><%="￥"+app.Util.formatData(d2["money"] || 0,2)%></td>
+	</tr>
+<%}%>

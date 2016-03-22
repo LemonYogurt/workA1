@@ -1,0 +1,33 @@
+<h4>
+	<div class="slot-title ellipsis200 pull-left" data-solt-id="<%=slotid%>"><%=title%></div>
+	<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<span class="clearfix"></span>
+</h4>
+<table class="table table-hover switchTable">
+    <!-- <thead>
+				<tr>
+					<th>推广联盟</th>
+					<th>接入设置</th>
+				</tr>
+			</thead> -->
+    <tbody>
+        <%for(var i=0 ;i< list.length;i++){%>
+            <tr>
+                <td>
+                    <%=list[i].name%>
+                </td>
+                <td class="switchTd" data-id="<%=list[i]._id%>">
+                	<%if(selectedUnion.indexOf(list[i]._id) !== -1){%>
+						<span class="">未接入</span>
+	                    <i class="fa fa-toggle-on"></i>
+	                    <span class="on">接入</span>
+                	<%}else{%>
+	                    <span class="on">未接入</span>
+	                    <i class="fa fa-toggle-off"></i>
+	                    <span class="">接入</span>
+                    <%}%>
+                </td>
+            </tr>
+            <%}%>
+    </tbody>
+</table>

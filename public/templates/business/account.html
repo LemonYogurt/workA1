@@ -1,0 +1,248 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title" id="myModalLabel"><%=account._id?"修改账户": "添加账户"%></h4>
+</div>
+<div class="modal-body" style="padding:20px 40px;">
+	<form class="form-horizontal" action="javascript:;" id="regform" method="post">
+		<input type="hidden" value="<%=account._id || ''%>" id="_id">
+		<div class="form-group">
+			<label for="regemail" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="email" class="form-control" value="<%=account.email || ''%>"   id="regemail" placeholder="Email" <%=account._id?"disabled": ""%>>
+			</div>
+		</div>
+		<%if(!account._id){%>
+		<div class="form-group">
+			<label for="regemail" class="col-sm-2 control-label">Password</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control"  id="regpassword" placeholder="Password">
+			</div>
+		</div>
+		<%}%>
+		<div class="form-group">
+			<label for="regemail" class="col-sm-2 control-label">用户名称</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="name" value="<%=account.name || ''%>" placeholder="用户名称"></div>
+		</div>
+		<%
+		var currentUser = app.session;
+		var dspDetail = account.dspDetail || {};
+		var sspDetail = account.sspDetail || {};
+
+		var disabled = account.dspId || account.sspId;
+
+		// 只有外面传递进数据的时候，disabled才会有值
+		// 当disabled没有值的时候，说明是添加用户，通过获取url的后缀，判断是ssp还是dsp
+		if (!disabled) {
+		var _href = window.location.href;
+		var _businessType = _href.split('/')[_href.split('/').length - 1];
+		account.businessType = _businessType;
+		}
+
+		var settlementType = sspDetail.settlement && sspDetail.settlement.type || "";
+		var settlementValue = settlementType?sspDetail.settlement.value : 66;
+		// 当传入空对象时，account._id是undefined，所以此时isUser为true
+		var isUser = account.authorize && account.authorize.type >= 4 || !account._id;
+		var authorizeType = 0;
+		if (account.authorize) {
+		authorizeType = account.authorize.type;
+		}
+		var isSsp = isUser && account.sspId ? true:false;
+		var isDsp = isUser && account.dspId ? true:false;
+		var bidType = "";
+		var admType = "";
+		var android = "";
+		var ios = "";
+
+		if(isDsp){
+		bidType = dspDetail.bidType;
+		admType = dspDetail.admType;
+		}else if(isSsp){
+		bidType = sspDetail.bidType;
+		admType = sspDetail.admType;
+		android = sspDetail.platform_bid && sspDetail.platform_bid.android;
+		ios = sspDetail.platform_bid && sspDetail.platform_bid.ios;
+		}
+		%>
+		<% // 如果isUser为true的话，就会执行这部分代码 %>
+		<%if(isUser){%>
+		<div class="form-group" style="margin-bottom: 20px;">
+			<label class="col-sm-2 control-label">账户类型</label>
+			<div class="col-sm-10">
+				<label class="radio-inline" style="margin-right:10px;">
+					<input type="radio" name="accountType" id="userRadio" value="" data-type="5" <%=!account._id || authorizeType == 5 ? "checked": ""%>  <%=authorizeType?"disabled": ""%>> 个人
+				</label>
+				<label class="radio-inline" style="margin-right:10px;">
+					<input type="radio" name="accountType" data-type="4" id="commerceRadio" value="" <%=authorizeType == 4?"checked": ""%> <%=authorizeType?"disabled": ""%>> 商务
+				</label>
+			<%if(!(currentUser && currentUser.authorize && currentUser.authorize.type == 2)){%>
+				<label class="radio-inline" style="margin-right:10px;">
+					<input type="radio" name="accountType" data-type="2" id="businessRadio" value="" <%=authorizeType == 2?"checked": ""%> <%=authorizeType?"disabled": ""%>> 运营
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="accountType" data-type="1" id="adminRadio" value="" <%=authorizeType == 1?"checked": ""%> <%=authorizeType?"disabled": ""%>> 管理员
+				</label>
+			<% } %>
+			</div>
+		</div>
+		<div id="bussinessType" class="form-group" style="margin-bottom: 20px;">
+			<label class="col-sm-2 control-label">商务类型</label>
+			<div class="col-sm-10">
+				<label class="radio-inline" style="margin-right:14px;">
+					<input type="radio" name="businessType" id="dspCheckbox" value="" <%=disabled?"disabled": ""%> <%=account.businessType=="dsp"?"checked": ''%> <%=isDsp?'checked': ''%>> <span style="position:relative;top:2px;">dsp</span>
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="businessType" id="sspCheckbox" value="" <%=disabled?"disabled": ""%> <%=account.businessType=="ssp"?"checked": ''%> <%=isSsp?'checked': ''%>> <span style="position:relative;top:2px;">ssp</span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group" style="display:<%=authorizeType > 4?'': 'none'%>" id="bidType">
+			<label for="dspId" class="col-sm-2 control-label">竞价类型</label>
+			<div class="col-sm-10" >
+				<label class="radio-inline" style="margin-right:6px;">
+					<input type="radio" value="cpm" name="bidType" <%=bidType== 'cpm' ? 'checked': ''%>> <span style="position:relative;top:2px;">CPM</span>
+				</label>
+				<label class="radio-inline" style="margin-right:6px;">
+					<input type="radio" value="cpc" name="bidType"  <%=bidType == 'cpc'? 'checked': ''%>> <span style="position:relative;top:2px;">CPC</span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group" style="display:<%=authorizeType > 4?'': 'none'%>" id="admType">
+			<label for="dspId" class="col-sm-2 control-label">adm类型</label>
+			<div class="col-sm-10" >
+				<label class="radio-inline">
+					<input type="radio" value="html" name="admType" <%=admType== 'html' ? 'checked': ''%>> <span style="position:relative;top:2px;">HTML</span>
+				</label>
+				<label class="radio-inline">
+					<input type="radio" value="json" name="admType"  <%=admType == 'json'? 'checked': ''%>> <span style="position:relative;top:2px;">JSON</span>
+				</label>
+			</div>
+		</div>
+		<%}%>
+
+		<div class="form-group addNormal" style="display:<%=authorizeType > 4?'': 'none'%>">
+			<label for="abbreviation" class="col-sm-2 control-label">代号</label>
+			<div class="col-sm-10">
+				<!--abbreviation是缩写的意思-->
+				<input type="text" class="form-control" id="abbreviation" value="<%= account.dspDetail && account.dspDetail.abbreviation || '' %>" placeholder="公司代码">
+			</div>
+		</div>
+		<div id="settlementDiv" style="display: <%=isSsp && authorizeType > 4? '': 'none'%>">
+			<div  class="form-group" >
+				<label for="" class="col-sm-2 control-label">结算方式</label>
+				<div class="col-md-3">
+					<select name="type" id="settlementType" class="form-control">
+						<option value="share" <%=settlementType == "share"? "selected": ""%>>分成</option>
+						<option value="fixed" <%=settlementType == "fixed"? "selected": ""%> >固定价格</option>
+						<option value="rtb" <%=settlementType == "rtb"? "selected": ""%> >竞价</option>
+					</select>
+				</div>
+				<div class="col-md-3 settlementValue" style="display: <%= settlementType == 'rtb'? 'none': ''%>">
+					<input type="number" class="form-control" value="<%=settlementValue%>">
+				</div>
+				<label for="" class="control-label suffix">
+					<span class="percentage" style="display: <%= !settlementType || settlementType == 'share'? '': 'none'%>">%</span>
+					<span class="fen" style="display: <%= settlementType == 'fixed'? '': 'none'%>">分</span>
+				</label>
+			</div>
+			<div  class="form-group" >
+				<label for="" class="col-sm-2 control-label">分别竞价</label>
+				<label for="" class="col-sm-2 control-label" style="text-align:left;">Android</label>
+				<div class="col-md-3" >
+					<input type="number" class="form-control" id="android" value="<%=android%>" placeholder="价格">
+				</div>
+			</div>
+			<div  class="form-group" >
+				<label for="" class="col-sm-2 control-label"></label>
+				<label for="" class="col-sm-2 control-label" style="text-align:left;">IOS</label>
+				<div class="col-md-3" >
+					<input type="number" class="form-control" id="ios" value="<%=ios%>" placeholder="价格">
+				</div>
+			</div>
+		</div>
+		<div id="dspSettingDiv" style="display: <%=isDsp && authorizeType > 4? '': 'none'%>">
+			<div  class="form-group" >
+				<label for="path" class="col-sm-2 control-label">地址</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="path" value="<%=dspDetail.hostname &&  ('http://'+dspDetail.hostname + (dspDetail.port == 80 ? '' : ':'+dspDetail.port) + dspDetail.path) || ''%>" placeholder="例如:http://www.xxx.cn">
+				</div>
+			</div>
+			<div  class="form-group" >
+				<label for="" class="col-sm-2 control-label">contentType</label>
+				<div class="col-md-3">
+					<select name="contentType" id="contentType" class="form-control" style="width:250px;">
+						<option value="application/json" <%=dspDetail.contentType == "application/json"? "selected": ""%>>application/json</option>
+						<option value="application/x-protobuf" <%=dspDetail.contentType == "application/x-protobuf"? "selected": ""%>>application/x-protobuf</option>
+					</select>
+				</div>
+			</div>
+			<div  class="form-group" >
+				<label for="" class="col-sm-2 control-label">version</label>
+				<div class="col-md-3">
+					<select name="version" id="version" class="form-control">
+						<%for(var vsl = app.dsp_version_list,i=0;i < vsl.length;i++){%>
+						<option value="<%=vsl[i]%>" <%=dspDetail.version == vsl[i] ? "selected": ""%>><%=vsl[i]%></option>
+						<%}%>
+					</select>
+				</div>
+			</div>
+		</div>
+		<!-- End -->
+		<%if(isDsp  && authorizeType > 4){%>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">e_key</label>
+			<div class="col-sm-10">
+				<pre><%=dspDetail.e_key||''%></pre>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">i_key</label>
+			<div class="col-sm-10">
+				<pre><%=dspDetail.i_key||''%></pre>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">bidders</label>
+			<div class="col-md-9" id="bidders">
+				<%for(var bidders = account.dspDetail.bidders,i=0;i < bidders.length;i++){%>
+				<!-- <span data-id="<%=bidders[i].id%>"> <%=bidders[i].name%></span> -->
+				<div class="col-sm-8 form-group">
+					<input type="text" class="form-control bidderInfo"  style="width:150px; display:inline" id="tx-<%=bidders[i].id%>"  disabled="disabled" value="<%=bidders[i].name%>">
+					<a class="editBidder"  func="edit" data-id="<%=bidders[i].id%>">修改</a>
+					<a class="deleteBidder" data-id="<%=bidders[i].id%>">删除</a>
+				</div>
+				<%}%>
+			</div>
+			<div class="col-md-9">
+				<a id="addBidder">增加</a>
+			</div>
+		</div>
+		<%}%>
+		<div class="addNormal">
+			<div class="form-group">
+				<label for="regemail" class="col-sm-2 control-label">联系电话</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="telphone" value="<%=account.info && account.info.telphone || ''%>" placeholder="联系电话(可选)"></div>
+			</div>
+			<div class="form-group">
+				<label for="regemail" class="col-sm-2 control-label">公司名称</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="company" value="<%=account.info && account.info.company || ''%>" placeholder="所在公司名称(可选)"></div>
+			</div>
+			<div class="form-group">
+				<label for="regemail" class="col-sm-2 control-label">联系地址</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="address" value="<%=account.info && account.info.address || ''%>"  placeholder="联系地址(可选)"></div>
+			</div>
+			<div class="form-group">
+				<label for="regemail" class="col-sm-2 control-label">网址</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="website" value="<%=account.info && account.info.website || ''%>" placeholder="个人/公司网址(可选)"></div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	<button type="button" class="btn btn-success" id="saveAccountBtn">保存</button>
+</div>

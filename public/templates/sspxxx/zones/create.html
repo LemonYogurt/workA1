@@ -1,0 +1,260 @@
+<h3>新建推广位</h3>
+<div class="flowsteps">
+    <ol class="list-inline">
+        <li class="fs-item fs-item-current"><b>1</b>选择平台和类型</li>
+        <li class="fs-item"><b>2</b>填写基本信息</li>
+        <li class="fs-item"><b>3</b>完成</li>
+    </ol>
+</div>
+<div class="col-md-5">
+    <form class="form-horizontal" id="step1Form" action="javascript:;" method="post">
+        <div class="form-group">
+            <label for="name" class="col-md-5 control-label">推广位名称：</label>
+            <div class="col-md-7">
+                <input type="text" name="name" class="form-control" id="name" placeholder="请输入推广位名称">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="platform" class="col-md-5 control-label">推广平台：</label>
+            <div class="col-md-7">
+                <label class="radio-inline">
+                    <input type="radio" name="platform" id="platform-pc" value="pc" checked> PC
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="platform" id="platform-mobile" value="mobile"> 移动网页
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="platform" id="platform-app" value="app"> APP
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-md-5 control-label">推广位类型：</label>
+            <div class="col-md-7 zonetype">
+                <select class="form-control" name="" id="pcType" style="display: block;">
+                    <option value="101">固定</option>
+                    <option value="102">双边对联</option>
+                    <option value="103">悬停</option>
+                    <option value="104">单边对联</option>
+                    <option value="105">浮窗</option>
+                    <option value="106">折叠</option>
+                    <option value="107">视频浮层</option>
+                    <option value="108">视频贴片</option>
+                    <option value="109">视频暂停</option>
+                </select>
+                <select class="form-control" name="" id="mobileType" style="display: none;">
+                    <option value="201">固定(移动网页)</option>
+                    <option value="202">浮窗(移动网页)</option>
+                </select>
+                <select class="form-control" name="" id="appType" style="display: none;">
+                    <option value="301">无线视频贴片</option>
+                    <option value="302">无线视频暂停</option>
+                </select>
+            </div>
+        </div>
+		<!-- 双边对联 -->
+		<div class="special-setting" data-type="102" >
+			<div class="form-group">
+	            <label for="" class="col-md-5 control-label">屏幕位置：</label>
+	            <small for="" class="col-md-3 control-label" style="padding-left: 0;padding-right: 0;text-align: center;">双联间距<span class=" text-muted">(可选)</span></small>
+	            <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" id="" class="form-control" name="posLRVal_102">
+	            </div>
+	            <label class="col-md-2 control-label" style="text-align: left;padding:0;line-height: 30px;"> px(像素)</label>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-md-5 control-label"></label>
+	            <div class="col-md-3" >
+	                <select class="form-control" name="posTB_102">
+	                    <option value="top">居上</option>
+	                    <option value="bottom">居下</option>
+	                </select>
+	            </div>
+	            <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" class="form-control" name="posTBVal_102">
+	            </div>
+	            <label class="col-md-2 control-label" style="text-align: left;padding:0;line-height: 30px;"> px(像素)</label>
+	        </div>
+		</div>
+		<!-- 单边对联 -->
+		<div class="special-setting" data-type="104">
+			<div class="form-group">
+	            <label class="col-md-5 control-label">屏幕位置：</label>
+	            <div class="col-md-3" >
+	                <select class="form-control" name="posLR_104" >
+	                    <option value="left">居左</option>
+	                    <option value="right">居右</option>
+	                </select>
+	            </div>
+	            <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" class="form-control" name="posTBVal_104">
+	            </div>
+	            <label class="col-md-2 control-label" style="text-align: left;padding:0;line-height: 30px;"> px(像素)</label>
+	        </div>
+			<div class="form-group">
+	            <label class="col-md-5 control-label"></label>
+	            <div class="col-md-3" >
+	                <select class="form-control" name="posTB_104">
+	                    <option value="top">居上</option>
+	                    <option value="bottom">居下</option>
+	                </select>
+	            </div>
+	            <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" class="form-control" name="posTBVal_104">
+	            </div>
+	            <label class="col-md-2 control-label" style="text-align: left;padding:0;line-height: 30px;"> px(像素)</label>
+	        </div>
+		</div>
+		<!-- 折叠 -->
+		<div class="special-setting" data-type="106">
+			<div class="form-group">
+	            <label class="col-md-5 control-label">小图样式：</label>
+	            <div class="col-md-7 insets" >
+	            	<div data-id="1" ><img src="/img/insets/1.gif"></div>
+	            	<div data-id="2" ><img src="/img/insets/2.gif"></div>
+	            	<div data-id="3" ><img src="/img/insets/3.gif"></div>
+	            	<div data-id="4" ><img src="/img/insets/4.png"></div>
+	            	<div data-id="5" ><img src="/img/insets/5.gif"></div>
+	            	<div data-id="6" ><img src="/img/insets/6.gif"></div>
+	            </div>
+	        </div>
+	        <input type="hidden" name ="insetsType" id="insetsType">	
+			<div class="form-group">
+	            <label class="col-md-5 control-label">屏幕位置：</label>
+	            <div class="col-md-3" >
+	                <select class="form-control" name="posLR_106">
+	                    <option value="left">居左</option>
+	                    <option value="right">居右</option>
+	                </select>
+	            </div>
+	            <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" id="" class="form-control" name="posLRVal_106">
+	            </div>
+	            <label class="col-md-2 control-label" style="text-align: left;padding:0;line-height: 30px;"> px(像素)</label>
+	        </div>
+			<div class="form-group">
+	            <label class="col-md-5 control-label"></label>
+	            <div class="col-md-3" >
+	                <select class="form-control" name="posTB_106" >
+	                    <option value="top">居上</option>
+	                    <option value="bottom">居下</option>
+	                </select>
+	            </div>
+	            <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" id="" class="form-control" name="posTBVal_106">
+	            </div>
+	            <label class="col-md-2 control-label" style="text-align: left;padding:0;line-height: 30px;"> px(像素)</label>
+	        </div>
+	        <div class="form-group">
+	            <div class="col-sm-offset-5 col-sm-3">
+			      <div class="checkbox">
+			        <label>
+			          <input type="checkbox" id="expand-checkbox"> 自动展开，展开位置距浏览器顶部
+			        </label>
+			      </div>
+			    </div>
+			    <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" class="form-control" name="expand">
+	            </div>
+	            <label class="col-md-2 control-label" style="text-align: left;padding:0;line-height: 30px;"> px(像素)</label>
+	        </div>
+	        <div class="form-group">
+	            <div class="col-sm-offset-5 col-sm-4">
+			      <div class="checkbox">
+			        <label>
+			          <input type="checkbox" id="close-checkbox"> 关闭按钮宽度
+			        </label>
+			      </div>
+			    </div>
+			    <div class="col-md-2" style="padding: 0;" >
+	                <input type="number" class="form-control" name="close_btn_width">
+	            </div>
+	            <label class="col-md-1 control-label"> %</label>
+	        </div>
+		</div>
+        <!-- 视频贴片 -->
+        <div class="special-setting" data-type="108">
+        	<div class="form-group">
+	            <label for="video-position" class="col-md-5 control-label">贴片位置：</label>
+	            <div class="col-md-7">
+	                <select class="form-control" name="ideo_position_108">
+	                    <option value="before">后贴片</option>
+	                    <option value="after">前贴片</option>
+	                </select>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="video-position" class="col-md-5 control-label">最短视频创意时长(可选)：</label>
+	            <div class="col-md-3">
+	                <input type="number" class="form-control" name="minDuration_108" placeholder="">
+	            </div>
+	            <label class="col-md-4 control-label" style="text-align: left;">秒</label>
+	        </div>
+	        <div class="form-group">
+	            <label for="video-position" class="col-md-5 control-label">最长视频创意时长：</label>
+	            <div class="col-md-3">
+	                <input type="number" class="form-control" name="maxDuration_108" placeholder="">
+	            </div>
+	            <label class="col-md-4 control-label" style="text-align: left;">秒</label>
+	        </div>
+        </div>
+        <!-- 浮窗(移动网页) -->
+        <div class="special-setting" data-type="202">
+			<div class="form-group">
+	            <label for="video-position" class="col-md-5 control-label">浮窗样式：</label>
+	            <div class="col-md-7">
+	                <select class="form-control" name="floatWinStyle" id="window_position">
+	                    <option value="top">顶部浮窗</option>
+	                    <option value="bottom">底部浮窗</option>
+	                </select>
+	            </div>
+	        </div>
+        </div>
+       <!--  无线视频贴片 -->
+        <div class="special-setting" data-type="301">
+        	<div class="form-group">
+	            <label for="video-position" class="col-md-5 control-label">贴片位置：</label>
+	            <div class="col-md-7">
+	                <select class="form-control" name="video_position_301">
+	                    <option value="before">后贴片</option>
+	                    <option value="after">前贴片</option>
+	                </select>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="video-position" class="col-md-5 control-label">最短视频创意时长(可选)：</label>
+	            <div class="col-md-3">
+	                <input type="number" class="form-control" name="minDuration_301" placeholder="">
+	            </div>
+	            <label class="col-md-4 control-label" style="text-align: left;">秒</label>
+	        </div>
+	        <div class="form-group">
+	            <label for="video-position" class="col-md-5 control-label">最长视频创意时长：</label>
+	            <div class="col-md-3">
+	                <input type="number" class="form-control" name="maxDuration_301" placeholder="">
+	            </div>
+	            <label class="col-md-4 control-label" style="text-align: left;">秒</label>
+	        </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-7">
+                <button type="submit" class="btn btn-default" id="nextBtn">下一步</button>
+                <a href="#ssp/zones" style="margin-left: 20px;">取消</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="col-md-4">
+	<div class="text-center sample">
+		<img  data-type="101" style="display: initial;" src="/img/sample/guding.png">
+		<img  data-type="102" src="/img/sample/duilian.png">
+		<img  data-type="104" src="/img/sample/danbian.png">
+		<img  data-type="105" src="/img/sample/fuchuang.png">
+		<img  data-type="106" src="/img/sample/zhedie.jpg">
+		<img  data-type="201" src="/img/sample/yidongguding.jpg">
+		<img  data-type="202" src="/img/sample/ydfc.jpg">
+		<img  data-type="202-bottom" src="/img/sample/ydfcb.jpg">
+	</div>
+</div>
+<div class="col-md-3"></div>

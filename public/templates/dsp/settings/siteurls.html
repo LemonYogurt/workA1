@@ -1,0 +1,34 @@
+<h2>
+	过滤URL
+	<small>您不接收来自以下URL的竞价交易请求</small>	</h2>
+<br>
+<div class="text-right">
+	<button class="btn btn-default btn-sm pull-left"  data-toggle="modal" data-target="#addSiteUrlModal" type="button"><i class="fa fa-plus"></i> 新增过滤网址</button>
+	<small style="line-height: 40px;">已设置<span class="selectedOptionsNum">0</span>个URL</small>
+</div>
+<table class="table switchTable" id="siteTypeTable">
+	<thead class="table-thead">
+		<tr>
+			<th data-field="name">屏蔽的网址</th>
+			<th data-field="options">操作</th>
+		</tr>
+	</thead>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="addSiteUrlModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">新增屏蔽网址</h4>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" id="siteUrlTextarea" rows="10" placeholder="请输入屏蔽网址url，多个请换行"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="saveSiteUrlBtn">确定</button>
+      </div>
+    </div>
+  </div>
+</div>

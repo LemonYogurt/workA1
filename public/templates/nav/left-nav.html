@@ -1,0 +1,154 @@
+<i class="fa fa-chevron-circle-left icon-target"></i>
+<!-- dsp nav -->
+<ul data-sub="settings" class="sub-nav-ul" style="display: none;">
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="fa fa-desktop"></i>推广位接入</div>
+        <ul class="sub-nav-third">
+            <li><a href="#dsp/settings/sizes" class="left-nav-sizes">推广位尺寸</a></li>
+            <li><a href="#dsp/settings/types" class="left-nav-types">推广位类型</a></li>
+            <li><a href="#dsp/settings/screens" class="left-nav-screens">推广位屏数</a></li>
+        </ul>
+    </li>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="fa fa-globe"></i>网站接入</div>
+        <ul class="sub-nav-third">
+            <li><a href="#dsp/settings/siteurls" class="left-nav-siteurls">网站URL</a></li>
+            <li><a href="#dsp/settings/sitetypes" class="left-nav-sitetypes">网站类型</a></li>
+        </ul>
+    </li>
+    <li class="li">
+        <a href="#dsp/settings/zone"><i class="fa fa-map-marker"></i> 地域设置</a>
+    </li>
+    <li class="li">
+        <a href="#dsp/settings/user"><i class="fa fa-user"></i>用户设置</a>
+    </li>
+</ul>
+<ul data-sub="deals" class="sub-nav-ul" style="display: none;">
+    <li class="li">
+        <a href="#!/deals/preference" class=""><i class="iconfont mr8"></i>优先交易</a>
+    </li>
+    <li class="li">
+        <a href="#!/deals/personal"><i class="iconfont mr8"></i>私有竞价</a>
+    </li>
+</ul>
+<ul data-sub="report" class="sub-nav-ul" style="display: none;">
+    <%if(app.isAdmin() || app.isBusiness()){%>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer">
+            <i class="fa fa-gavel"></i>竞价监控
+        </div>
+        <ul class="sub-nav-third">
+            <li><a href="#dsp/reports/bid" class="left-nav-bid">竞价概况</a></li>
+           <!--  <li><a href="#dsp/reports/bid-error" class="left-nav-bid-error">竞价过滤</a></li> -->
+        </ul>
+    </li>
+    <%}%>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="fa fa-bar-chart"></i>消耗报表</div>
+        <ul class="sub-nav-third">
+            <li><a href="#dsp/reports/realtime" class="left-nav-realtime">实时消耗</a></li>
+            <li><a href="#dsp/reports/history" class="left-nav-history">历史消耗</a></li>
+            <li class="hide"><a href="#dsp/reports/history-site" class="left-nav-history-site">分网站报表</a></li>
+            <li class="hide"><a href="#dsp/reports/history-size" class="left-nav-history-size">分尺寸报表</a></li>
+        </ul>
+    </li>
+    <li class="li sub hide">
+        <div class="sub-title cursor-pointer"><i class="fa fa-line-chart"></i>交易报表</div>
+        <ul class="sub-nav-third">
+            <li><a href="#dsp/reports/preference" class="left-nav-preference">优先交易报表</a></li>
+            <li><a href="#dsp/reports/personal" class="left-nav-personal">私有竞价报表</a></li>
+        </ul>
+    </li>
+</ul>
+<ul data-sub="account" class="sub-nav-ul" style="display: none;">
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="iconfont mr8">󰂻</i>账务管理</div>
+        <ul class="sub-nav-third" style="height: 0px;">
+            <li><a href="#!/accounts/detail" class="">账户明细</a></li>
+        </ul>
+    </li>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="iconfont mr8">󰄭</i>客户管理</div>
+        <ul class="sub-nav-third" style="height: 0px;">
+            <li><a href="#!/accounts/qinfo" mx-click="mx_n_9q_hack">客户信息</a></li>
+            <li><a href="#!/accounts/qualification" mx-click="mx_n_9q_hack">资质信息</a></li>
+        </ul>
+    </li>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="iconfont mr8"></i>系统设置</div>
+        <ul class="sub-nav-third" style="height: 0px;">
+            <li><a href="#!/accounts/log">操作日志</a></li>
+        </ul>
+    </li>
+    <li class="li">
+        <a href="#!/accounts/doc"><i class="iconfont mr8"></i>文档管理</a>
+    </li>
+</ul>
+<!-- ssp nav -->
+<ul data-sub="zones" class="sub-nav-ul" style="display: none;">
+    <li class="li">
+        <a href="#ssp/zones/index"><i class="fa fa-desktop"></i>推广位</a>
+    </li>
+    <li class="li">
+        <a href="#ssp/sites/index"><i class="fa fa-globe"></i>网站</a>
+    </li>
+    <li class="li">
+        <a href="#ssp/groups/index"><i class="fa fa-group"></i>渠道</a>
+    </li>
+</ul>
+<ul data-sub="sspSettings" class="sub-nav-ul" style="display: block;">
+    <li class="li sub">
+        <div class="sub-title cursor-pointer">
+            <i class="fa fa-wrench"></i>推广控制工具
+        </div>
+        <ul class="sub-nav-third" style="height: 46px;">
+           <!--  <li><a href="#ssp/settings/content">推广内容设置</a></li> -->
+            <li><a href="#ssp/settings/union">推广联盟设置</a></li>
+        </ul>
+    </li>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="fa fa-gear"></i>系统设置</div>
+        <ul class="sub-nav-third" style="height: 23px;">
+            <li><a href="#ssp/settings/log">操作日志</a></li>
+        </ul>
+    </li>
+</ul>
+<ul data-sub="sspreport" class="sub-nav-ul" style="display: none;">
+    <%if(app.isAdmin() || app.isBusiness()){%>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer">
+            <i class="fa fa-gavel"></i>竞价监控
+        </div>
+        <ul class="sub-nav-third">
+            <li><a href="#ssp/reports/bid" class="left-nav-bid">竞价概况</a></li>
+        </ul>
+    </li>
+    <%}%>
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="fa fa-bar-chart"></i>收益报表</div>
+        <ul class="sub-nav-third">
+            <li><a href="#ssp/reports/realtime" class="left-nav-realtime">实时收益</a></li>
+            <li><a href="#ssp/reports/history" class="left-nav-history">历史收益</a></li>
+        </ul>
+    </li>
+</ul>
+<ul data-sub="businessSetting" class="sub-nav-ul" style="display: none;">
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="fa fa-wrench"></i>运营工具</div>
+        <ul class="sub-nav-third">
+            <li><a href="#business" class="left-nav-business-account">账户管理</a></li>
+            <li><a href="#business/dspSetting" class="left-nav-business-dsp">DSP接入</a></li>
+            <li><a href="#business/dsp_size" class="left-nav-business-dsp-size">DSP投放尺寸</a></li>
+        </ul>
+    </li>
+</ul>
+<ul data-sub="adminSetting" class="sub-nav-ul" style="display: none;">
+    <li class="li sub">
+        <div class="sub-title cursor-pointer"><i class="fa fa-lock"></i> 管理员工具</div>
+        <ul class="sub-nav-third">
+            <li><a href="#admin" class="left-nav-admin-account"> 账户管理</a></li>
+            <li><a href="#admin/global" class="left-nav-admin-global"> 全局设置</a></li>
+        </ul>
+    </li>
+</ul>
+<div class="sub-nav-view"></div>

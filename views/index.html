@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>adx</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/img/logo/icon_48.png">
+    <link rel="stylesheet" href="/plugs/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/plugs/bootstrap/css/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="/plugs/font-awesome-4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/plugs/daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="/plugs/toastr/toastr.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if IE 8]>
+        <script src="./plugs/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <div class="alert alert-warning alert-dismissible fade in" style="margin-bottom:0px;" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+          你的浏览器版本过低，请<a target="_blank" href="http://www.baidu.com/s?ie=utf-8&wd=chrome%E6%B5%8F%E8%A7%88%E5%99%A8">升级浏览器</a>获取最佳体验！
+        </div>
+    <![endif]-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid" id="nav"></div>
+    </nav>
+ 
+    <div class="container-fluid" id="main">
+        <div id="left-nav">
+            <i class="fa fa-spinner fa-spin"></i>
+        </div>
+        <div id="right-body">
+            <div class="text-center">
+                <i class="fa fa-spinner fa-spin" style="font-size: 20px;"></i>
+            </div>
+        </div>
+    </div>
+    <div id="mask-panel"></div>
+    <script data-main="/js/main.js" src="./plugs/require/require.js"></script>
+</body>
+
+</html>

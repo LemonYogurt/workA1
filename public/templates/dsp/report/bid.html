@@ -1,0 +1,58 @@
+<h2 >竞价监控</h2>
+<div class="row" style="margin-bottom: 10px;">
+	<div class="col-md-12"> 
+		<input class="form-control" style="width: 220px;float: left;margin-right: 10px;" type="text" id="bidRangeDate">
+		<span class="text-muted hide" style="line-height: 30px;float: left;">(日期查询最大跨度90天)</span>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-2">
+        <div>实际发送</div>
+        <h3 class="reqPv">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>响应成功</div>
+        <h3 class="rmcPv">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>有效报价</div>
+        <h3 class="validPv">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>竞价成功</div>
+        <h3 class="successPv">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>参与竞价率</div>
+        <h3 class="vrmc">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>竞价成功率</div>
+        <h3 class="successValid">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>网络异常率</div>
+        <h3 class="networkError">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>超时率</div>
+        <h3 class="timeout">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>错误率</div>
+        <h3 class="malformed">-</h3>
+    </div>
+</div>
+<div class="row chartPanel">
+	<div class="col-md-12">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	           <i class="fa fa-bar-chart"></i> 竞价情况
+	        </div>
+	        <div id="dspBidChart"></div>
+	    </div>
+	</div>
+</div>
+

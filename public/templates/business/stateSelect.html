@@ -1,0 +1,7 @@
+<select class="form-control input-sm" style="width: 100px;float: left;margin-right: 10px;">
+    <option value="0" <%=state == "0"? "selected": ""%> >可用</option>
+    <option value="1" <%=state == "1"? "selected": ""%> >待审核</option>
+    <option value="2" <%=state == "2"? "selected": ""%> >禁用</option>
+</select>
+<button class="btn btn-success btn-sm saveBtn">保存</button>
+<button class="btn btn-default btn-sm canclBtn">取消</button>

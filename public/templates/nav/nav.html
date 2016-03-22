@@ -1,0 +1,83 @@
+<div class="navbar-header ">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="javascript:;">
+		<img src="./img/logo/logo_black/logo.png" alt="" class="logo">
+	</a>
+	<%if(show){if(app.type == "ssp"){%>
+		<a class="navbar-brand" href="/#ssp/home">
+			<span>SSP</span>
+		</a>
+	<%}else{%>
+		<a class="navbar-brand" href="/#dsp/home">
+			<span>DSP</span>
+		</a>
+	<%}}%>
+</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<ul class="nav navbar-nav" style="display:<%=show?'':'none;'%>">
+		<%if(app.type == "ssp"){%>
+			<li class="" id="sspHomeMenu">
+				<a href="#ssp/home">主页</a>
+			</li>
+			<li class="hide" id="sspZonesMenu">
+				<a href="#ssp/zones">资源位</a>
+			</li>
+			<li class="" id="sspReportMenu">
+				<a href="#ssp/reports/realtime">报表</a>
+			</li>
+		<%}else{%>
+			<li class="" id="dspHomeMenu">
+				<a href="#dsp/home">主页</a>
+			</li>
+			<li class="hide" id="dspSettingsMenu">
+				<a href="#dsp/settings">设置</a>
+			</li>
+			<li class="" id="dspReportMenu">
+				<a href="#dsp/reports/realtime">报表</a>
+			</li>
+			<li class="hide" id="dspAccountMenu">
+				<a href="#dsp/account">账户</a>
+			</li>
+		<%}%>
+		<li class="" id="accountSettingMenu">
+			<a href="#account/setting">设置</a>
+		</li>
+		<%if(app.isBusiness() ||  app.isAdmin() || app.isCommerce()){
+				var commerceType = '';
+
+				if (app.isCommerce()) {
+					if (app.getAccount().dspId) {
+						commerceType = 'dsp';
+					} else if (app.getAccount().sspId) {
+						commerceType = 'ssp';
+					}
+				}
+			%>
+			<li id="businessMenu" class="dropdown">
+			  <a href="#business"  data-toggle="dropdown">运营工具</a>
+			  <ul class="dropdown-menu">
+				<li style="display:<%=!commerceType || commerceType=='ssp'?'':'none' %>" ><a href="#business/manage/ssp" id="change">ssp管理</a></li>
+				<li style="display:<%=!commerceType || commerceType=='dsp'?'':'none' %>"><a href="#business/manage/dsp" id="change">dsp管理</a></li>
+			  </ul>
+			</li>
+		<%}%>
+		<%if(app.isAdmin()){%>
+			<li id="adminMenu">
+				<a href="#admin">管理员工具</a>
+			</li>
+		<%}%>
+	</ul>
+	<ul class="nav navbar-nav navbar-right" style="display:<%=show?'':'none;'%>;">
+		<li><a href="#" id='activeEmail'><%=account.desc ? '<span style="color: #5bc0de">' + account.desc + '</span>' : ''%><%=account.email%>(<%=account.name%>)</a></li>
+		<li id="switchBidderLi" class="dropdown"><a href="#" id='switchBidder' data-toggle="dropdown"><i class="fa fa-random"></i> <%=app.bidder %></a>
+				<ul class="dropdown-menu" id="bidderList">
+				</ul>	
+		</li>
+		<li><a href="#" id='loginOut'><i class="fa fa-sign-out"></i> 退出</a></li>
+	</ul>
+</div>

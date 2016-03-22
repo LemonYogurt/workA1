@@ -1,0 +1,88 @@
+<div class="row setting-form">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="title">基本信息修改</span>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal col-md-8">
+                    <div class="form-group">
+                        <label for="partAccount" class="col-md-3 control-label">Email</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" disabled value="<%=user && user.email || ''%>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partAccount" class="col-md-3 control-label">用户名称</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="name" value="<%=user && user.name || ''%>" placeholder="请输入用户名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partBalance" class="col-md-3 control-label">公司名称</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="company" value="<%=user && user.info && user.info.company || ''%>" placeholder="请输入公司名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partBalance" class="col-md-3 control-label">联系地址</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="address" value="<%=user && user.info && user.info.address || ''%>" placeholder="请输入联系地址">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partBalance" class="col-md-3 control-label">联系电话</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="telphone" value="<%=user && user.info && user.info.telphone || ''%>" placeholder="请输入联系电话">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partBalance" class="col-md-3 control-label">个人/公司网站</label>
+                        <div class="col-md-9">
+                            <input type="url" class="form-control" id="website" value="<%=user && user.info && user.info.website || ''%>" placeholder="请输入个人或公司网站地址">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="button" id="settingSaveInfoBtn" class="btn btn-success">确定</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="title">密码修改</span>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal col-md-8" id="settingsPassword">
+                    <div class="form-group">
+                        <label for="partAccount" class="col-md-3 control-label">旧密码</label>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" id="oldPassword" value="" placeholder="请输入旧密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partAccount" class="col-md-3 control-label">新密码</label>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" id="newPassword" value="" placeholder="请输入新密码(格式为字母或数字)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partAccount" class="col-md-3 control-label">确认密码</label>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" id="newPassword2" value="" placeholder="请再次输入新密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="button" id="savePasswordBtn" class="btn btn-success">确定</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

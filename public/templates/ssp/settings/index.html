@@ -1,0 +1,68 @@
+<%if(type=="sizes" ){%>
+    <h2>
+		推广位尺寸
+		<small>选择您参与竞价交易的推广位尺寸</small>	</h2>
+	<br>
+	<div class="text-right">
+		<small style="line-height: 40px;">已选择<span class="selectedOptionsNum">0</span>个推广尺寸</small>
+	</div>
+	<table class="table switchTable" id="optionsTable">
+		<thead class="table-thead">
+			<tr>
+				<th data-field="name">推广位尺寸</th>
+				<th data-field="avgpv">日均流量</th>
+				<th data-field="state">接入状态</th>
+			</tr>
+		</thead>
+	</table>
+
+<%}else if (type=="types" ){%>
+	<h2>
+		推广位类型
+		<small>选择您参与竞价交易的推广位类型</small>
+	</h2>
+    <br>
+    <div class="text-right">
+        <small style="line-height: 40px;">已选择<span class="selectedOptionsNum">0</span>个推广位类型</small>
+    </div>
+    <table class="table switchTable" id="optionsTable">
+        <thead class="table-thead">
+            <tr>
+                <th data-field="name">推广位类型</th>
+                <th data-field="state">接入状态</th>
+            </tr>
+        </thead>
+    </table>
+<%}else if(type=="screens" ){%>
+    <h2>推广位屏数
+		<small>选择您参与竞价交易的推广位屏数</small>
+	</h2>
+    <br>
+    <div class="text-right">
+        <small style="line-height: 40px;">已选择<span class="selectedOptionsNum">0</span>个推广位屏数</small>
+    </div>
+    <table class="table switchTable" id="optionsTable">
+        <thead class="table-thead">
+            <tr>
+                <th data-field="name">推广位屏数</th>
+                <th data-field="state">接入状态</th>
+            </tr>
+        </thead>
+    </table>
+<%}else if(type == "sitetypes"){%>
+	 <h2>网站类型
+		<small>选择您参与竞价交易的网站类型</small>
+	</h2>
+    <br>
+    <div class="text-right">
+        <small style="line-height: 40px;">已选择<span class="selectedOptionsNum">0</span>个网站类型</small>
+    </div>
+    <table class="table switchTable" id="optionsTable">
+        <thead class="table-thead">
+            <tr>
+                <th data-field="name">网站类型</th>
+                <th data-field="state">接入状态</th>
+            </tr>
+        </thead>
+    </table>
+<%}%>

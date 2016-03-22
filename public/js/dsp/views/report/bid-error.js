@@ -1,0 +1,18 @@
+define([
+	"text!templates/dsp/report/bid-error.html"
+	],function(indexTemplate){
+	return Backbone.View.extend({
+		el:"#right-body",
+		initialize:function(){
+			this.indexTemplate = _.template(indexTemplate);
+		},
+		events:{
+
+		},
+		render:function(){
+			app.leftNav.show("report","bid-error");
+			this.$el.html(this.indexTemplate());
+		}
+	});
+
+});

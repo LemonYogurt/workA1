@@ -1,0 +1,67 @@
+<div class="row" id="consumptionHome">
+    <div class="col-md-3">
+        <div>昨日预估收入<span class="text-muted">(元) 
+        <a tabindex="0" class="tips" role="button" data-toggle="popover" data-trigger="hover" data-content="指昨天的预估收入数据。该收入仅为过滤前的预估收入数据展示，非为您的实际收入金额，最终结算金额以月结后您账户内实际收到的金额为准。"><i class="fa fa-question-circle"></i></a>
+        </span></div>
+        <h3 class="lastDayAmount">预估中</h3>
+    </div>
+    <div class="col-md-3">
+        <div>本月预估收入<span class="text-muted">(元)
+		<a tabindex="0" class="tips" role="button" data-toggle="popover" data-trigger="hover" data-content="指本月1号到昨天为止的预估收入数据。该收入为过滤前的预估数据展示，非为您的实际收入金额，最终结算金额以月结后您账户内实际收到的金额为准。"><i class="fa fa-question-circle"></i></a>
+        </span></div>
+        <h3 class="curMonthAmount">预估中</h3>
+    </div>
+    <div class="col-md-3">
+        <div>上月预估收入<span class="text-muted">(元)
+		<a tabindex="0" class="tips" role="button" data-toggle="popover" data-trigger="hover" data-content="指上一个自然月的预估收入数据。该收入为过滤前的预估数据展示，非为您的实际收入金额，最终结算金额以月结后您账户内实际收到的金额为准。"><i class="fa fa-question-circle"></i></a>
+        </span></div>
+        <h3 class="lastMontAmount">预估中</h3>
+    </div>
+    <div class="col-md-3 hide">
+        <div>账户余额<span class="text-muted">(元)</span></div>
+        <h3 class="balance">获取中</h3>
+    </div>
+</div>
+<h4 style="margin-top: 40px;">效果概况</h4>
+<div class="row" style="margin-bottom: 10px;">
+	<div class="col-md-2"> 
+		<input class="form-control" style="width: 220px" type="text" id="homeRangeDate">
+	</div>
+	<div class="col-md-10">
+		<span class="text-muted" style="line-height: 30px;">(日期查询最大跨度90天)</span>
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div>展现量</div>
+        <h3 class="totalPv">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>点击量</div>
+        <h3 class="totalClick">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>点击率</div>
+        <h3 class="totalCtr">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>千次展现收入<span class="text-muted">(元)</span></div>
+        <h3 class="pvTotalMoney">-</h3>
+    </div>
+    <div class="col-md-4">
+        <div>预估总收入<span class="text-muted">(元)
+		<a tabindex="0" class="tips" role="button" data-toggle="popover" data-trigger="hover" data-content="该收入仅为过滤前的预估数据展示，非为您的实际收入金额，最终结算金额以月结后您账户内实际收到的金额为准。"><i class="fa fa-question-circle"></i></a>
+        </span></div>
+        <h3 class="totalMoney">-</h3>
+    </div>
+</div>
+<div class="row chartPanel">
+	<div class="col-md-12">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	           <i class="fa fa-bar-chart"></i> 统计图表
+	        </div>
+	        <div id="sspHomeChart"></div>
+	    </div>
+	</div>
+</div>

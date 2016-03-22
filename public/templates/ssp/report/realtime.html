@@ -1,0 +1,154 @@
+<h2>实时收益</h2>
+<div class="row" style="margin-bottom: 10px;">
+    <div class="form-inline">
+        
+    <div class="col-md-2"> 
+    <span class="text-muted" style="line-height: 30px;"><i class="fa fa-circle" style="color:#5aa62e;"></i> 今日（截止<span><%=moment().format("HH")%></span>时）</span>
+    </div>
+    <div class="col-md-3 "> 
+        <span class="text-muted pull-left" style="line-height: 30px;margin-right: 10px;"><i class="fa fa-circle"></i> 对比日</span>
+        <div class="dropdown pull-left" id="compareDateDev">
+          <button class="btn btn-default dropdown-toggle" type="button" id="selectSite" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="compareDateText">昨天</span>
+                <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="compareDateDev">
+            <li style="padding: 5px;">
+                <button class="btn btn-link dateBtn" data-date = "<%=lastweek%>">上周同日</button>
+                <button class="btn btn-link dateBtn" data-date = "<%=yesterday%>">昨天</button>
+            </li>
+            <li style="padding: 5px;"><input type="text"class="form-control" id="compareDate"></li>
+          </ul>
+        </div>
+
+    </div>
+    <div class="col-md-7 hide">
+         <div class="dropdown pull-right" style="margin-left: 20px;" id="selectSizeDev">
+          <button class="btn btn-default dropdown-toggle" type="button" id="selectSize" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span data-type="size">不限尺寸</span>
+                <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="selectSize">
+            <li style="padding: 5px;"><input type="text"class="form-control" id="searchSize" placeholder="搜索"></li>
+            <li><a href="javascript:;">不限尺寸</a></li>
+          </ul>
+        </div>
+        <div class="dropdown pull-right" id="selectSiteDev">
+          <button class="btn btn-default dropdown-toggle" type="button" id="selectSite" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span data-type = "url">不限网站</span>
+                <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="selectSite">
+            <li style="padding: 5px;"><input type="text"class="form-control" id="searchSite" placeholder="搜索"></li>
+                <li><a href="javascript:;">不限网站</a></li>
+          </ul>
+        </div>
+       
+    </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div>展现量 
+        <a tabindex="0" class="tips text-muted" role="button" data-placement="top" data-toggle="popover" data-trigger="hover" data-content="所选条件下，推广单元展示的次数"><i class="fa fa-question-circle"></i></a></div>
+        <h3 class="totalPv">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>点击量 
+        <a tabindex="0" class="tips text-muted" role="button" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="所选条件下，推广单元被点击的次数"><i class="fa fa-question-circle"></i></a></div>
+        <h3 class="totalClick">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>点击率 
+        <a tabindex="0" class="tips text-muted" role="button" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="点击量/展现量"><i class="fa fa-question-circle"></i></a></div>
+        <h3 class="totalCtr">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>平均点击收益<span class="text-muted">(元) 
+        <a tabindex="0" class="tips text-muted" role="button" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="收益/点击量"><i class="fa fa-question-circle"></i></a></span></div>
+        <h3 class="avgTotalMoney">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>千次展现收益<span class="text-muted">(元) 
+        <a tabindex="0" class="tips" role="button" data-toggle="popover" data-placement="top"  data-trigger="hover" data-content="收益/展示*1000"><i class="fa fa-question-circle"></i></a></span></div>
+        <h3 class="pvTotalMoney">-</h3>
+    </div>
+    <div class="col-md-2">
+        <div>收益<span class="text-muted">(元)
+		<a tabindex="0" class="tips" role="button"  data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="所选条件，下推广单元产生的费用"><i class="fa fa-question-circle"></i></a>
+        </span></div>
+        <h3 class="totalMoney">-</h3>
+    </div>
+</div>
+<div class="row chartPanel">
+	<div class="col-md-12">
+	    <div class="panel panel-default">
+	        <div class="panel-heading text-right">
+	           <span class="pull-left"><i class="fa fa-bar-chart"></i> 统计图表</span>
+               <span>对比选项</span>
+               <select name="" id="comSelect" class="form-control input-sm"
+                style="width: 100px;float: right; margin-left: 10px;margin-top: -5px;">
+                   <option value="money">收益</option>
+                   <option value="pv">展示量</option>
+                   <option value="click">点击量</option>
+                   <option value="ctr">点击率</option>
+               </select>
+	        </div>
+            <div class="row">
+                <div class="col-md-10">
+    	           <div id="compareChart"></div>
+                </div>
+                <div class="col-md-2" style="height:250px;">
+                    <div class="text-center" style="padding:10px;font-size: 16px;">
+                        <small>累计增长</small> <b><span id="IncreaseRatio">0%</span></b>
+                    </div>
+                    <div class="columnarGroup">
+                        <div class="comColumnar"></div>
+                        <div class="todayColumnar"></div>
+                    </div>
+                    <div>
+                        <div class="col-md-6 text-center text-muted small" style="border-top:2px solid #ccc">
+                            <div class="moneyNum">0</div>
+                            <div class="moneyText">
+                                <div class="compareDateText">昨日</div>
+                                <div>(0~<%=moment().subtract('hours', 1).format("HH")%>时)</div>
+                            </div>
+                        </div>
+                         <div class="col-md-6 text-center text-muted small" style="border-top:2px solid #ccc">
+                            <div class="moneyNum">0</div>
+                            <div class="moneyText">
+                                <div>今日</div>
+                                <div>(0~<%=moment().subtract('hours', 1).format("HH")%>时)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </div>
+	</div>
+</div>
+<div class="row chartPanel">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                     <i class="fa fa-bar-chart"></i> 详细数据
+                    <span style="font-size: 0.8em;margin-left: 20px;"><i class="fa fa-circle"></i> 今天 <span class="text-muted" style="margin-left: 20px;"><i class="fa fa-circle"></i> <span class="compareDateText">昨天</span></span></span>
+            </div>
+            <table class="table table-bordered" id="compareTable">
+                <thead class="table-thead">
+                    <tr>
+                        <th data-field="schedule">时段</th>
+                        <th data-field="date">日期</th>
+                        <th data-field="pv">展现量</th>
+                        <th data-field="click">点击量</th>
+                        <th data-field="ctr">点击率</th>
+                        <th data-field="cpc">平均点击收益</th>
+                        <th data-field="cpm">千次展示收益</th>
+                        <th data-field="money">收益</th>
+                    </tr>
+                </thead>
+                <tbody id="compareTable-body"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
